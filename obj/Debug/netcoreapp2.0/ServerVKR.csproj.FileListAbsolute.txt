@@ -1,0 +1,10 @@
+E:\ServerVKR\bin\Debug\netcoreapp2.0\ServerVKR.deps.json
+E:\ServerVKR\bin\Debug\netcoreapp2.0\ServerVKR.runtimeconfig.json
+E:\ServerVKR\bin\Debug\netcoreapp2.0\ServerVKR.runtimeconfig.dev.json
+E:\ServerVKR\bin\Debug\netcoreapp2.0\ServerVKR.dll
+E:\ServerVKR\bin\Debug\netcoreapp2.0\ServerVKR.pdb
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.csproj.CoreCompileInputs.cache
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.AssemblyInfoInputs.cache
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.AssemblyInfo.cs
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.dll
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.pdb

@@ -1,0 +1,78 @@
+﻿@model List<Category>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="advantages_container">
+		<div class="advantages">
+			<a href="/Home/Catalog">Каталог</a>
+            @foreach (var category in Model) {
+                <div class="advantages_item">
+                    <a href="/Home/Catalog">
+                        <img src="~/Images/cakes_new/tort.jpg">
+                    <p>
+                        @category.Name
+                    </p>
+                    </a>
+			    </div>
+            }
+
+			<!-- <div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/tort.jpg"><p>Торты</p></a>
+			</div> -->
+			<!-- <div class="advantages_item">
+				<a href="#"><img src="Images/cakes/cake_main.png"></a>
+				<p>Торты</p>
+				<button>Торты</button>
+			</div> -->
+			
+			<!-- <div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/zefir.jpg"><p>Зефир</p></a> 
+			</div>
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/keikpops.jpg"><p>Кейк попсы</p></a> 
+			</div>
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/cheezkeik.jpg"><p>Чизкейки</p></a> 
+			</div>
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/makarons.jpg"><p>Макаронсы</p></a> 			
+			</div>
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/kapkeik.jpg"><p>Капкейки</p></a> 
+			</div>
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/beze.jpg">
+				<p>Безе</p> </a>
+			</div>
+			
+			<div class="advantages_item">
+				<a href="/Home/Catalog"><img src="~/Images/cakes_new/konfet.jpg"><p>Конфеты</p></a> 
+			</div> -->
+			<!-- <div class="advantages_item">
+				<img src="Images/cakes/mini_cake.png" width="200" height="185">
+				<h3>Пирожные</h3>
+			</div> -->
+		</div>		
+	</section>
+	<section class="forms_container">
+		<hr width="70%" style="margin: 0 auto;">
+		<div class="content_forms_container">
+			<p style="font-size: 30px; text-transform: uppercase; padding-top: 40px;">Не нашли то, что искали?</p>
+			<p >Отправьте нам фото изделия и его краткое описание.<br> Мы свяжемся с вами для уточнения заказа!</p>
+		</div>
+		<form action="index.html" method="POST" class="special_order_form">
+			<div>
+				<input type="text" name="first_name" placeholder="Ваше имя*" required>
+				<input type="tel" name="phone" placeholder="Номер телефона*" required>
+				<input type="date" name="select_date" placeholder="Дата выполнения заказа*" required>
+				<textarea placeholder="Описание"></textarea>
+				<p>Пример десерта</p>
+				<input type="file" name="photo" style="text-indent: 0;">
+				<input type="submit" name="send" value="Отправить" >
+			</div>
+			
+		</form>
+		<hr width="70%" style="margin: 0 auto;">
+	</section>

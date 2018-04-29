@@ -1,0 +1,17 @@
+@model Category
+
+<div class="content_container">
+    @if (Model.NewItem) {
+        <h1>Добавление категории</h1>
+    } else {
+        <h1>Редактирование категории</h1>
+    }
+
+    <form method="post" asp-action="CategoryAddEdit">
+        <input asp-for="Name" type="text" placeholder="Название" />
+        <!-- <input asp-for="Price" type="number" placeholder="Цена" /> -->
+        <input asp-for="NewItem" type="text" hidden/>
+        <input asp-for="Id" type="text" hidden/>
+        <button>Сохранить</button>
+    </form>
+</div>

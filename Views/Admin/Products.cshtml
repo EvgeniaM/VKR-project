@@ -1,0 +1,38 @@
+@model List<Product>
+
+<div class="content_container">
+    <h1>Товары</h1>
+
+    <a href="/Admin/ProductAddEdit">Добавить товар</a>
+    <br>
+    <a href="/Admin/Index">Вернуться на главную</a>
+
+
+    <table>
+        <tr>
+            <th>
+                Название товара
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+        @foreach (var product in Model) {
+            <tr>
+                <td>
+                    @product.Name
+                </td>
+                <td>
+                    @product.Price
+                </td>
+                <td>
+                    <a href="/Admin/ProductAddEdit?id=@product.Id">Редактировать</a>
+                    <a href="/Admin/ProductRemove?id=@product.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

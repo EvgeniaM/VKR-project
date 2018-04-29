@@ -1,0 +1,56 @@
+<main class="reviews">
+		
+		<section class="reviews_container">
+			<div class="reviews_item">
+				<img src="~/Images/users.png" width="256" height="256">
+				<div class="reviews_item_text">
+					<h4>Name</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe deleniti dicta dolore recusandae ea, enim aut quos amet libero sunt?</p>
+				</div>
+			</div>
+			<div class="reviews_item">
+				<img src="~/Images/users.png" width="256" height="256">
+				<div class="reviews_item_text">
+					<h4>Name</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus odio laborum nisi porro veritatis ex earum doloremque temporibus sit, autem fuga aperiam vel voluptates placeat, odit ullam dolorem facere suscipit perferendis. Harum, voluptatem, officia! Excepturi mollitia magni, accusantium, et dignissimos quis optio dolore soluta dolorum magnam explicabo, molestiae hic delectus.</p>
+				</div>
+			</div>
+			<div class="reviews_item">
+				<img src="~/Images/users.png" width="256" height="256">
+				<div class="reviews_item_text">
+					<h4>Name</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam consectetur illum, optio ut rerum dolores. Numquam omnis eius sit perferendis? Deserunt assumenda debitis fugiat nemo illum sunt doloremque ullam eligendi nam veritatis soluta fugit ipsa minus animi esse ipsam sed reiciendis dolorum explicabo reprehenderit, veniam dolorem. Hic consequuntur porro reiciendis, accusantium autem delectus aut, voluptatum repellat eaque perspiciatis, dolores. Necessitatibus deleniti neque iste explicabo magnam illo, atque alias. Nisi in magnam consectetur dolorum excepturi atque quo expedita a totam veniam, at sapiente repudiandae molestias debitis enim ipsum omnis consequatur nihil dolor commodi, sint reiciendis ab, hic voluptas deserunt? Id fugit aspernatur eum commodi, numquam dolores. Laboriosam quasi incidunt rerum aut officia non modi tenetur sequi iure inventore sint tempore vel facilis atque officiis culpa pariatur, quos molestiae, voluptatibus libero maiores autem obcaecati. Minus repellendus animi expedita et, culpa earum perferendis ullam repudiandae facilis temporibus illum provident fugiat doloribus soluta saepe.</p>
+				</div>
+			</div>
+			<div class="reviews_item">
+				<img src="~/Images/users.png" width="256" height="256">
+				<div class="reviews_item_text">
+					<h4>Name</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, placeat, quo! Officiis aperiam ratione, nemo delectus iure repellat fuga earum at voluptatibus laboriosam quaerat in dolorum ducimus magni facere quasi?</p>
+				</div>
+			</div>
+		</section>
+		<section class="reviews_form_container">
+			<div class="content_forms_container">
+				<p style="font-size: 30px; text-transform: uppercase; padding-top: 40px;">Оставьте свой отзыв</p>
+			</div>
+			<form action="reviews.html" method="POST" class="reviews_form">
+				<div class="field">
+					<input type="text" name="first_name" placeholder="Ваше имя*" required maxlength="30">
+				</div>
+				<div class="field">
+					<input type="email" name="email" placeholder="Email*" required>
+				</div>
+				<div class="field">
+					<textarea placeholder="Текст отзыва" required></textarea>
+				</div>
+				<div class="field">
+					<label for="photo">Прикрепить фото торта</label>
+					<input type="file" name="photo" id="photo" style="text-indent: 0;">
+				</div>	
+				<div class="field">
+					<input type="submit" name="send" value="Отправить отзыв" >
+				</div>
+			</form>
+		</section>
+	</main>

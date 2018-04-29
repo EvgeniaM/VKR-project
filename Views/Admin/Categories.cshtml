@@ -1,0 +1,30 @@
+@model List<Category>
+
+<div class="content_container">
+    <h1>Категории</h1>
+    <a href="/Admin/CategoryAddEdit">Добавить категорию</a>
+    <br>
+    <a href="/Admin/Index">Вернуться на главную</a>
+
+    <table>
+        <tr>
+            <th>
+                Название категории
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+        @foreach (var category in Model) {
+            <tr>
+                <td>
+                    @category.Name
+                </td>
+                <td>
+                    <a href="/Admin/CategoryAddEdit?id=@category.Id">Редактировать</a>
+                    <a href="/Admin/CategoryRemove?id=@category.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
