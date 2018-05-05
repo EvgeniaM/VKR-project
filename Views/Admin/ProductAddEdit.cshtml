@@ -10,6 +10,13 @@
     <form method="post" asp-action="ProductAddEdit">
         <input asp-for="Name" type="text" placeholder="Название" />
         <input asp-for="Price" type="number" placeholder="Цена" />
+        <select asp-for="IdForCategory">
+            @foreach (var category in Model.Categories) {
+                <option value="@category.Id">
+                    @category.Name
+                </option>
+            }
+        </select>
         <input asp-for="NewItem" type="text" hidden/>
         <input asp-for="Id" type="text" hidden/>
         <button>Сохранить</button>

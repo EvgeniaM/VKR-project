@@ -4,6 +4,7 @@ using ServerVKR.Data;
 using ServerVKR.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ServerVKR.Services {
     public class CategoryService {
@@ -14,13 +15,13 @@ namespace ServerVKR.Services {
         }
 
         public List<Category> GetCategories() {
-            var category = _db.Categories;
+            var categories = _db.Categories.Include(c => c.Products);
             
-            return category.ToList();
+            return categories.ToList();
         }
-
+        
         public Category GetCategory(Guid? id) {
-           var category = _db.Categories.SingleOrDefault(p => p.Id == id);
+           var category = _db.Categories.Include(c => c.Products).SingleOrDefault(p => p.Id == id);
             
            return category;
         }

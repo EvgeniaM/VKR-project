@@ -1,12 +1,11 @@
 @model List<Product>
 
 <div class="content_container">
-    <h1>Товары</h1>
-
-    <a href="/Admin/ProductAddEdit">Добавить товар</a>
-    <br>
-    <a href="/Admin/Index">Вернуться на главную</a>
-
+    <p class="title_stile">Товары</p>
+    <div class="admin_menu">
+        <a href="/Admin/ProductAddEdit" class="admin_menu_item">Добавить товар</a>
+        <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
+    </div>
 
     <table>
         <tr>
@@ -15,6 +14,9 @@
             </th>
             <th>
                 Цена
+            </th>
+            <th>
+                Категория товара
             </th>
             <th>
                 Действия
@@ -27,6 +29,11 @@
                 </td>
                 <td>
                     @product.Price
+                </td>
+                <td>
+                @if (product.Category != null) {
+                    @product.Category.Name
+                }
                 </td>
                 <td>
                     <a href="/Admin/ProductAddEdit?id=@product.Id">Редактировать</a>

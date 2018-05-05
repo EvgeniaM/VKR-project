@@ -24,11 +24,18 @@ namespace ServerVKR.Controllers
             return View(categories);
         }
 
-        public IActionResult Catalog()
+        public IActionResult Catalog(Guid categoryId)
         {
-            var products = _productsService.GetProducts();
+            var categories = _categoryService.GetCategories();
+
+            var category = categories.SingleOrDefault(c => c.Id == categoryId);
             
-            return View(products);
+            CatalogViewModel model = new CatalogViewModel {
+                Categories = categories,
+                Products = category == null ? _productsService.GetProducts() : category.Products
+            };
+            
+            return View(model);
         }
 
         public IActionResult Cart()

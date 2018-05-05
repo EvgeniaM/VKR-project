@@ -1,42 +1,23 @@
-@model List<Product> 
+@model CatalogViewModel
 
 
 <section class="catalog_container">
 		<div class="content_container">
 			<aside class="catalog_filter">
 				<span class="filter-title">Категории</span>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_cake" name="filter_cat">
-					<label for="filter_cat_cake">Торты</label>
-				</div>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_zefir" name="filter_cat">
-					<label for="filter_cat_zefir">Зефир</label>
-				</div>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_cakepops" name="filter_cat">
-					<label for="filter_cat_cakepops">Кейк-попсы</label>
-				</div>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_cheezcake" name="filter_cat">
-					<label for="filter_cat_cheezcake">Чизкейки</label>
-				</div>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_makarons" name="filter_cat">
-					<label for="filter_cat_makarons">Макаронсы</label>
-				</div>
-				<div class="filter_item">
-					<input type="radio" id="filter_cat_kapkeik" name="filter_cat">
-					<label for="filter_cat_kapkeik">Капкейки</label>
-				</div>
+				@foreach (var category in Model.Categories) {
+					<div class="filter_item">
+					<a href="/Home/Catalog?categoryId=@category.Id">@category.Name</a>
+					</div>
+				}
 			</aside>
 			<main class="show_catalog">
-				@foreach (var product in Model) 
+				@foreach (var product in Model.Products) 
 				{
 					<div class="product_item">
-						<a href="/Home/Product">
+						
 							<img src="~/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg">
-						</a>
+						
 						<a href="/Home/Product?id=@product.Id">Подробнее</a>
 						<span class="product_item_name">
 							@product.Name

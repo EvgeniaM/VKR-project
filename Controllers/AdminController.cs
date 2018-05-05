@@ -36,7 +36,11 @@ namespace ServerVKR.Controllers
         [HttpGet]
         public IActionResult ProductAddEdit(Guid? id) {
             Product product = id == null ? new Product { NewItem = true } : _productsService.GetProduct(id);
-
+            if (product.Category != null) {
+                product.IdForCategory = product.Category.Id;
+            }
+            var categories = _categoryService.GetCategories();
+            product.Categories = categories;
             return View(product);
         }
 

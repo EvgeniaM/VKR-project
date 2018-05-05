@@ -76,7 +76,7 @@ nav {
 .topnav a {
 	color: #000;
 	text-align: center;
-	padding: 14px 35px;
+	padding: 14px 23px;
 	font-size: 15px;
 	text-transform: uppercase;
 }
@@ -622,4 +622,23 @@ footer nav a:hover{
 
 .product_description {
 	text-align: justify;
+}
+
+.title_stile {
+	font-size: 1.5em;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.admin_menu_item {
+	color: #000;
+	display: block;
+	margin-bottom: 20px;
+	font-size: 16px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #fff;
+}
+
+.admin_menu_item:hover {
+	border-bottom: 1px solid #000;
 }
