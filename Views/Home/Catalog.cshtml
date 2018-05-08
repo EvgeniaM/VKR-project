@@ -7,7 +7,7 @@
 				<span class="filter-title">Категории</span>
 				@foreach (var category in Model.Categories) {
 					<div class="filter_item">
-					<a href="/Home/Catalog?categoryId=@category.Id">@category.Name</a>
+						<a href="/Home/Catalog?categoryId=@category.Id">@category.Name</a>
 					</div>
 				}
 			</aside>
@@ -15,16 +15,16 @@
 				@foreach (var product in Model.Products) 
 				{
 					<div class="product_item">
-						
+						<a href="/Home/Product?id=@product.Id">
 							<img src="~/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg">
+							<span class="product_item_name">
+								@product.Name
+							</span>
 						
-						<a href="/Home/Product?id=@product.Id">Подробнее</a>
-						<span class="product_item_name">
-							@product.Name
-						</span>
-						<span class="product_item_price">
-							@product.Price
-						</span>
+							<span class="product_item_price">
+								@product.Price
+							</span>
+						</a>
 					</div>
 				}  
 			</main>		

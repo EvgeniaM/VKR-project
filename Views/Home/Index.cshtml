@@ -8,7 +8,7 @@
 		<div class="advantages">
             @foreach (var category in Model) {
                 <div class="advantages_item">
-                    <a href="/Home/Catalog">
+                    <a href="/Home/Catalog?categoryId=@category.Id">
                         <img src="~/Images/cakes_new/tort.jpg">
                     <p>
                         @category.Name

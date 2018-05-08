@@ -2,16 +2,19 @@
 
 <div class="content_container">
     @if (Model.NewItem) {
-        <h1>Добавление категории</h1>
+        <p class="title_stile">Добавление категории</p>
     } else {
-        <h1>Редактирование категории</h1>
+        <p class="title_stile">Редактирование категории</p>
     }
 
-    <form method="post" asp-action="CategoryAddEdit">
-        <input asp-for="Name" type="text" placeholder="Название" />
-        <!-- <input asp-for="Price" type="number" placeholder="Цена" /> -->
+    <form method="post" asp-action="CategoryAddEdit" class="addEdit_form">
+        <input asp-for="Name" type="text" placeholder="Название"/>
         <input asp-for="NewItem" type="text" hidden/>
         <input asp-for="Id" type="text" hidden/>
         <button>Сохранить</button>
     </form>
+
+    <div class="admin_menu">
+        <a href="/Admin/Categories" class="admin_menu_item">Вернуться к категориям</a>
+    </div>
 </div>

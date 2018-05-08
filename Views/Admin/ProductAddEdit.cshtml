@@ -2,23 +2,30 @@
 
 <div class="content_container">
     @if (Model.NewItem) {
-        <h1>Добавление товара</h1>
+        <p class="title_stile">Добавление товара</p>
     } else {
-        <h1>Редактирование товара</h1>
+        <p class="title_stile">Редактирование товара</p> 
     }
-
-    <form method="post" asp-action="ProductAddEdit">
-        <input asp-for="Name" type="text" placeholder="Название" />
-        <input asp-for="Price" type="number" placeholder="Цена" />
-        <select asp-for="IdForCategory">
-            @foreach (var category in Model.Categories) {
-                <option value="@category.Id">
-                    @category.Name
-                </option>
-            }
-        </select>
-        <input asp-for="NewItem" type="text" hidden/>
-        <input asp-for="Id" type="text" hidden/>
-        <button>Сохранить</button>
+    <div class="admin_menu">
+        <a href="/Admin/Products" class="admin_menu_item">Вернуться к товарам</a>
+    </div>
+    <form method="post" asp-action="ProductAddEdit" class="addEdit_form">
+        <div>
+            <input asp-for="Name" type="text" placeholder="Название"  id="input_addEditform"/>
+            <input asp-for="Price" type="number" placeholder="Цена" id="input_addEditform"/>
+            <select asp-for="IdForCategory" id="input_addEditform">
+                @foreach (var category in Model.Categories) {
+                    <option value="@category.Id">
+                        @category.Name
+                    </option>
+                }
+            </select>
+            <input asp-for="NewItem" type="text" hidden/>
+            <input asp-for="Id" type="text" hidden/>
+            <textarea asp-for="Description" placeholder="Описание товара" id="input_addEditform"></textarea>
+            <button id="input_addEditform">Сохранить</button>
+        </div>
+        
     </form>
+    
 </div>

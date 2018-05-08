@@ -46,6 +46,7 @@ namespace ServerVKR.Services {
 
             product.Name = model.Name;
             product.Price = model.Price;
+            product.Description = model.Description;
            _db.SaveChanges();            
         }
         //удаляем товар
