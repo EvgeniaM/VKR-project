@@ -13,9 +13,11 @@ namespace ServerVKR.Controllers
     {
         private readonly ProductsService _productsService;
         private readonly CategoryService _categoryService;
-        public HomeController(CategoryService categoryService, ProductsService productsService) {
+        private readonly OrdersService _ordersService;
+        public HomeController(CategoryService categoryService, ProductsService productsService, OrdersService ordersService) {
             _productsService = productsService;
             _categoryService = categoryService;
+            _ordersService = ordersService;
         }
         public IActionResult Index()
         {
@@ -36,6 +38,20 @@ namespace ServerVKR.Controllers
             };
             
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Checkout(Order model)
+        {
+            _ordersService.AddOrder(model);            
+            
+            return RedirectToAction("Index");
         }
 
         public IActionResult Cart()

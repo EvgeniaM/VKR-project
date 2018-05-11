@@ -22,11 +22,18 @@
 							</span>
 						
 							<span class="product_item_price">
-								@product.Price
+								@product.Price <i class="fas fa-ruble-sign"></i>
 							</span>
+							
 						</a>
+						<button data-id="@product.Id"  data-price="@product.Price" data-name="@product.Name" class="add_item button-style">Добавить в корзину</button>
 					</div>
 				}  
 			</main>		
 		</div>
 </section>
+
+@section Scripts
+{
+	<script src="~/js/products.js"></script>
+}

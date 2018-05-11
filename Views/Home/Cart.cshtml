@@ -19,57 +19,27 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="~/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg"> 
-                        </td>
-                        <td>    
-                            <a href="#">Продукт</a>
-                        </td>
-                        <td>
-                            1000
-                        </td>
-                        <td>
-                            - 3 +
-                        </td>
-                        <td>
-                            3000
-                        </td>
-                        <td class="cart_teble_remove">
-                            <a href="#">&#215;</a>
-                        </td>
-                    </tr>
+                <tbody id="cart-items-place">
+                    
                 </tbody>
                 
             </table>
         </div>   
         <div class="sidebar">
-            <span>
-                Доставка
-            </span>
-            <form method="post" asp-action="Cart">
-                <ul class="cart_delivery">
-                    <li>
-                        Доставка по городу (радио кнопки)
-                    </li>
-                    <li>
-                        Доставка в пригороды (стоимость уточняется по телефону)
-                    </li>
-                    <li>
-                        Самовывоз
-                    </li>
-                </ul>
                 <span>
                     Итого
                 </span>
-                <span>
-                    5000 р
+                <span id="total-price">
+                    
                 </span>
-                <button >Оформить заказ</button>
-            </form>
-            
+                <button id="clear_cart">Очистить корзину</button>
+                <a href="/Home/Checkout" id="checkout" class="checkout-button">Оформить заказ</a>
         </div>    
     </div> 
 </section>
+
+@section Scripts
+{
+	<script src="~/js/cart.js"></script>
+}
 

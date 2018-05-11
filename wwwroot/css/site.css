@@ -13,6 +13,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+button {
+	cursor: pointer;
+}
+
 .topcontainer {
 	position: relative;
 	width: 100%;
@@ -83,6 +87,7 @@ nav {
 }
 
 .topnav a:hover {
+	color: #fff;
 	background: #f73647;
 }
 
@@ -113,6 +118,7 @@ nav {
 }
 .advantages_item img {
 	border: 1px solid #fff;
+	transition: 0.3s;
 }
 .advantages_item p {
 	color: #000;
@@ -122,8 +128,8 @@ nav {
 	/*opacity: 1;
     transition: opacity .3s;
     display: block;*/
-	background: #494949;
-	border: 1px solid #494949;
+	transition: 0.3s;
+	transform: scale(1.05);
 }
 
 .advantages_item img {
@@ -181,10 +187,16 @@ nav {
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	border: 0px;
+	transition: 0.2s;
+	border: 1px solid #c7c7c7;
+	cursor: pointer;
 }
 
 .special_order_form div input[type="submit"]:hover {
 	background: #f73647;
+	border: 1px solid #f73647;
+	color: #fff;
+	transition: 0.2s;
 }
 
 .special_order_form div input[type="file"]{
@@ -332,7 +344,6 @@ footer nav a:hover{
 	width: 45%;
 	margin-left: 10px;
 	}
-
 }
 
 @media screen and (max-width: 420px) {
@@ -760,18 +771,54 @@ footer nav a:hover{
 	font-family: bold;
 }
 
-.sidebar ul {
-	list-style-type: none;
-}
 
-.sidebar form button {
+.sidebar button {
 	/* display: block; */
 	/* width: 200px;
 	height: 30px; */
 	border: 0px;
 	text-transform: uppercase;
 }
-.sidebar form button:hover {
+.sidebar button:hover {
 	background: #f73647;
+	color: #fff;
 }
 
+.sidebar button{
+	min-width: 250px;
+	width: 50%;
+	height: 30px;
+	text-indent: 15px;
+	margin: 15px auto;
+}
+
+.product_item button {
+	width: 100%;
+}
+
+.button-style {
+	width: initial;
+    min-width: initial;
+    background-color: #f73647;
+    padding: 10px;
+    height: initial;
+    color: #fff;
+	border: 1px solid #f73647;
+	transition: 0.2s;
+	border-radius: 1px;
+}
+
+.button-style:hover {
+	background-color: #d43442;
+	border: 1px solid #d43442;
+	transition: 0.2s;
+	border-radius: 1px;
+}
+
+.checkout-button{
+	color: #000;
+	display: block;
+	margin-bottom: 20px;
+	font-size: 16px;
+	text-transform: uppercase;
+}
