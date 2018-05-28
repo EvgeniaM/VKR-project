@@ -90,6 +90,9 @@ namespace ServerVKR
 
             services.AddTransient<ProductsService>();
             services.AddTransient<CategoryService>();
+            services.AddTransient<OrdersService>();
+            services.AddTransient<DeliveryService>();
+            services.AddTransient<ReviewsService>();
 
             services.AddMvc();
         }

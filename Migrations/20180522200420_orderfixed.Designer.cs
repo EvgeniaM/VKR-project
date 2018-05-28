@@ -11,9 +11,10 @@ using System;
 namespace ServerVKR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180522200420_orderfixed")]
+    partial class orderfixed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,8 +187,6 @@ namespace ServerVKR.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Photo");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -272,35 +271,13 @@ namespace ServerVKR.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Photo");
-
                     b.Property<int>("Price");
-
-                    b.Property<string>("Unit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("ServerVKR.Models.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ClientName");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("Photo");
-
-                    b.Property<string>("Text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

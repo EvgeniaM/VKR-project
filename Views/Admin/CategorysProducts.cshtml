@@ -1,0 +1,38 @@
+@model CatalogViewModel
+
+<section class="catalog_container">
+		<div class="content_container">
+            <div class="admin_menu">
+                <a href="/Admin/Categories" class="admin_menu_item">Вернуться к списку категорий</a>
+            </div>
+            
+           
+            <section><div class="order">
+                <table class="cart_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Товар
+                            </th>
+                            <th>
+                                Цена
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model.Products) {
+                            <tr>
+                                <td> 
+                                    @product.Name
+                                </td>
+                                <td>
+                                    @product.Price <i class="fas fa-ruble-sign"></i>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div> 
+        </section>
+		</div>
+</section>

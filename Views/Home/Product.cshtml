@@ -5,9 +5,9 @@
             <img src="~/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg">
 
             <div class="description_container">
-                <p class="product_name">@(Model.Name)</p>
-			    <p class="product_price">@(Model.Price) <i class="fas fa-ruble-sign"></i></p>
-                <p class="product_description">@(Model.Description)</p>
+                <p class="product_price">Наименование: @(Model.Name)</p>
+			    <p class="product_price">Цена: @(Model.Price) <i class="fas fa-ruble-sign"></i> / @(Model.Unit)</p>
+                <p class="product_description">Описание: <br> @(Model.Description)</p>
                 <div class="addEdit_form">
                     <button data-id="@Model.Id"  data-price="@Model.Price" data-name="@Model.Name" class="add_item">Добавить в корзину</button>
                 </div>

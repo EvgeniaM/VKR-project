@@ -1,9 +1,27 @@
 <form action="" method="POST" class="special_order_form">
 			<div>
-				<input type="text" name="first_name" placeholder="Ваше имя*" required>
-                <input type="text" name="last_name" placeholder="Ваша фамилия*" required>
-				<input type="tel" name="phone" placeholder="Номер телефона*" required>
-				<textarea placeholder="Описание"></textarea>
-				<input type="submit" name="send" value="Отправить" >
+				<input id="firstname" type="text" name="first_name" placeholder="Ваше имя*" required>
+                <input id="lastname" type="text" name="last_name" placeholder="Ваша фамилия*" required>
+				<input id="phone" type="tel" name="phone" placeholder="Номер телефона*" required>
+                <input id="address" type="text" name="address" placeholder="Адрес доставки" required>
+				<div class="select-section">
+					<label>Выберите дату, к которой необходимо <br>выполнить заказ:</label>
+				<input type="date" name="date" required>
+				</div>
+				<textarea id="comment" placeholder="Комментарий"></textarea>
+				<div class="select-section">
+					<label for="delivery">Выберите способ доставки:</label>
+					<select id="delivery">
+						<option>самовывоз</option>
+						<option>по городу</option>
+					</select>
+					<p>Ваш заказ на сумму: </p>
+				</div>
+				<a id="checkout" class="button-style position-center">Отправить</a>
 			</div>	
 </form>
+
+@section Scripts
+{
+	<script src="~/js/order.js"></script>
+}

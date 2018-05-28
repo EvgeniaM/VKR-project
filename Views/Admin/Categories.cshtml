@@ -3,8 +3,9 @@
 <div class="content_container">
     <p class="title_stile">Категории</p>
     <div class="admin_menu">
-        <a href="/Admin/CategoryAddEdit" class="admin_menu_item">Добавить категорию</a>
         <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
+        <a href="/Admin/CategoryAddEdit" class="admin_menu_item">Добавить категорию</a>
+        <a href="/Admin/CategorysProducts?categoryId=@null" class="admin_menu_item">Просмотр товаров без категории</a>
     </div>
     
 
@@ -21,10 +22,11 @@
             <tr>
                 <td>
                     @category.Name
-                </td>
+                </td> 
                 <td>
                     <a href="/Admin/CategoryAddEdit?id=@category.Id">Редактировать</a>
                     <a href="/Admin/CategoryRemove?id=@category.Id">Удалить</a>
+                    <a href="/Admin/CategorysProducts?categoryId=@category.Id">Просмотр товаров категории</a>
                 </td>
             </tr>
         }

@@ -11,9 +11,10 @@ using System;
 namespace ServerVKR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180522191616_orderfix")]
+    partial class orderfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,8 +187,6 @@ namespace ServerVKR.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Photo");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -200,9 +199,13 @@ namespace ServerVKR.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<Guid?>("OrderId");
+
                     b.Property<int>("Price");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Deliverys");
                 });
@@ -218,8 +221,6 @@ namespace ServerVKR.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<Guid?>("DeliverysId");
-
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
@@ -233,8 +234,6 @@ namespace ServerVKR.Migrations
                     b.Property<int>("TotalPtice");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DeliverysId");
 
                     b.ToTable("Orders");
                 });
@@ -272,35 +271,13 @@ namespace ServerVKR.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Photo");
-
                     b.Property<int>("Price");
-
-                    b.Property<string>("Unit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("ServerVKR.Models.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ClientName");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("Photo");
-
-                    b.Property<string>("Text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -348,11 +325,11 @@ namespace ServerVKR.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ServerVKR.Models.Order", b =>
+            modelBuilder.Entity("ServerVKR.Models.Delivery", b =>
                 {
-                    b.HasOne("ServerVKR.Models.Delivery", "Deliverys")
-                        .WithMany()
-                        .HasForeignKey("DeliverysId");
+                    b.HasOne("ServerVKR.Models.Order")
+                        .WithMany("Deliverys")
+                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("ServerVKR.Models.OrderItem", b =>

@@ -1,0 +1,39 @@
+@model Order
+
+<section class="catalog_container">
+    <div class="content_container">
+    <div class="admin_menu">
+        <a href="/Admin/Orders" class="admin_menu_item">Вернуться к заказам</a>
+    </div>
+    <form method="post" asp-action="OrderEdit" class="addEdit_form">
+        <div>
+            <input asp-for="FirstName" type="text" id="input_addEditform">
+            <input asp-for="LastName" type="text" id="input_addEditform">
+			<input asp-for="Phone" type="tel" id="input_addEditform">
+            <input asp-for="Address" type="text" id="input_addEditform">
+			<div class="select-section">
+				<label>Дата, к которой необходимо выполнить заказ:</label>
+			    <input asp-for="CreatedDate" type="datetime">
+			</div>
+            <div class="select-section">
+				<label>Изменить статус заказа:</label>
+			</div>
+            <select asp-for="Status" id="input_addEditform">
+                    <option>
+                        Создан
+                    </option>
+                    <option>
+                        Подтвержден
+                    </option>
+                    <option>
+                        Выполнен
+                    </option>
+            </select>
+			<textarea asp-for="Comment"></textarea>
+			
+            <input asp-for="Id" type="text" hidden/>
+            <button id="input_addEditform">Сохранить</button>
+        </div>
+    </form>
+    
+</section>

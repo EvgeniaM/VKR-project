@@ -8,3 +8,4 @@ E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.AssemblyInfoInputs.cache
 E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.AssemblyInfo.cs
 E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.dll
 E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.pdb
+E:\ServerVKR\obj\Debug\netcoreapp2.0\ServerVKR.csprojResolveAssemblyReference.cache

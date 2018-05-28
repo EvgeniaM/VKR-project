@@ -5,20 +5,72 @@
 }
 
 <section class="advantages_container">
-		<div class="advantages">
-            @foreach (var category in Model) {
-                <div class="advantages_item">
-                    <a href="/Home/Catalog?categoryId=@category.Id">
+	<div class="advantages">
+        @foreach (var category in Model) {
+               <div class="advantages_item">
+                   <a href="/Home/Catalog?categoryId=@category.Id">
                         <img src="~/Images/cakes_new/tort.jpg">
-                    <p>
-                        @category.Name
-                    </p>
+						<p>
+							@category.Name
+						</p>
                     </a>
 			    </div>
             }		
 		</div>		
-	</section>
-	<section class="forms_container">
+</section>
+<div class="about_shop_container">
+		<div id="map"></div>
+		<div class="info">
+			<div class="info_item">
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, sapiente. Temporibus doloribus maiores, fuga facilis iste soluta voluptates consectetur minima odit alias sunt sit vel aliquid ducimus modi nisi voluptatum fugit magni sint nam? Modi beatae pariatur voluptatem officiis voluptatibus delectus illum fuga. Quasi adipisci voluptas molestias eius incidunt ut esse nihil rem eum animi. Impedit earum veniam, aperiam iusto aut dolorum voluptas necessitatibus harum omnis soluta eligendi veritatis mollitia rem perspiciatis sint sed fugit sunt natus? Magni fugiat ad numquam earum quaerat nostrum provident quis et cumque, molestias, esse distinctio iusto necessitatibus consequatur voluptatum vero. Eum quidem id sunt.</p>
+			</div>
+			<div class="info_item">
+					<ul>
+						<li>
+							Telephone: X-XXX-XXX-XX-XX
+						</li>
+						<li>
+							Adress: Lorem ipsum dolor sit amet. <br> Lorem ipsum dolor.
+						</li>
+					</ul>
+				</div>
+			</div>
+</div>
+<section class="forms_container">
+	<hr width="70%" style="margin: 0 auto;">
+	<div class="content_forms_container">
+		<p style="font-size: 30px; text-transform: uppercase; padding-top: 40px;">калькулятор веса торта</p>
+		<!-- <p >Отправьте нам фото изделия и его краткое описание.<br> Мы свяжемся с вами для уточнения заказа!</p> -->
+	</div>
+	<form action="index.html" method="POST" class="special_order_form">
+		<div>
+			<p>Введите количество гостей:</p>
+			<input type="number" value="" id="guest-count">
+			<p>Введите количество гостей, которые не едят сладкое:</p>
+			<input type="number" value="" id="guest-count-not">
+			<div class="select-section">
+				<label for="weight">Выберите вес одного куска торта на человека (гр):</label>
+				<select id="weight">
+					<option>100</option>
+					<option>150</option>
+					<option>200</option>
+				</select>
+				<br>
+				<label for="unit">Выберите единицы измерения веса торта:</label>
+				<select id="unit">
+					<option>килограмм</option>
+					<option>грамм</option>
+				</select>
+				<div id="total-weight"></div>
+			</div>
+			<a onclick="Calculate()" class="button-style position-center">Рассчитать</a>
+			
+		</div>
+	</form>
+	<hr width="70%" style="margin: 0 auto;">
+		
+</section>
+	<!-- <section class="forms_container">
 		<hr width="70%" style="margin: 0 auto;">
 		<div class="content_forms_container">
 			<p style="font-size: 30px; text-transform: uppercase; padding-top: 40px;">Не нашли то, что искали?</p>
@@ -37,4 +89,50 @@
 			
 		</form>
 		<hr width="70%" style="margin: 0 auto;">
-	</section>
+	</section> -->
+
+<script>
+      function initMap() {
+        var uluru = {lat: 59.9386300, lng: 30.3141300};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEEXLgNcir1aATZvhyw8NhIYmlT4FjxdE&callback=initMap">
+</script>
+<script>
+	function Calculate() {
+		count_guest = document.getElementById('guest-count').value;
+		count_guest_not  = document.getElementById('guest-count-not').value;
+		piece_weight = document.getElementById('weight').value;
+		unit_type = document.getElementById('unit').value;
+		if ((count_guest != "") && (count_guest >= 1)) 
+		{
+			if ((count_guest_not != "") && (count_guest_not >=0)) {
+				total_weight = ( parseFloat(count_guest) - parseFloat(count_guest_not)) * parseFloat(piece_weight);
+				switch(unit_type) {
+					case "килограмм":
+						total_weight = total_weight / 1000;
+						document.getElementById('total-weight').innerHTML = "Необходимый вес торта: "+ total_weight + " " + unit_type;
+						break
+					case "грамм":
+						document.getElementById('total-weight').innerHTML = "Необходимый вес торта: "+ total_weight + " " + unit_type;
+					default: 
+						break
+				}
+			} else {
+				alert("Введены некорректные данные");
+			}
+		} else {
+			alert("Введены некорректные данные");
+		}
+		
+	}
+</script>

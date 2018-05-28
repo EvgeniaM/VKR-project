@@ -14,10 +14,12 @@ namespace ServerVKR.Controllers
         private readonly ProductsService _productsService;
         private readonly CategoryService _categoryService;
         private readonly OrdersService _ordersService;
-        public HomeController(CategoryService categoryService, ProductsService productsService, OrdersService ordersService) {
+        private readonly ReviewsService _reviewsService;
+        public HomeController(CategoryService categoryService, ProductsService productsService, OrdersService ordersService, ReviewsService reviewService) {
             _productsService = productsService;
             _categoryService = categoryService;
             _ordersService = ordersService;
+            _reviewsService = reviewService;
         }
         public IActionResult Index()
         {
@@ -83,9 +85,21 @@ namespace ServerVKR.Controllers
         {
             return View();
         }
+        //отзывы
+        
+        
         public IActionResult Reviews()
         {
+            
             return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Reviews(Review model) { 
+            
+            _reviewsService.AddReview(model);
+
+            return RedirectToAction("Reviews");
         }
 
         public IActionResult CakeFilling()

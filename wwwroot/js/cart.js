@@ -1,3 +1,4 @@
+//работа с корзиной
 $(document).ready(function () {
     let cart = JSON.parse(localStorage.getItem('cart'))
     let cartItemsPlace = $("#cart-items-place")
@@ -19,6 +20,7 @@ $(document).ready(function () {
                             </td>
                             <td>
                                 <input type="number" value="${item.quantity}" class="change_quantity" />
+                                
                             </td>
                             <td class="total">
                                 ${item.price * item.quantity}
@@ -31,16 +33,16 @@ $(document).ready(function () {
         cartItemsPlace.append(tr);
         totalSum += item.price * item.quantity
     })
-
+    //стоимость
     $('#total-price').html(totalSum)
-
+    //очистить корзину
     $('#clear_cart').on('click', function () {
         localStorage.removeItem('cart')
         $("#cart-items-place").html('')
         $('#total-price').html(0)
         $('#cart-price').html(`0 <i class="fas fa-ruble-sign"></i>`)
     })
-
+    //изменить количество товара
     $('.change_quantity').on('change', function () {
         let cart = JSON.parse(localStorage.getItem('cart'))
         let tr = $(this).parent("td").parent("tr")

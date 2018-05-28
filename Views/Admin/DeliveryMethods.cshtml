@@ -1,0 +1,39 @@
+@model List<Delivery>
+
+<div class="content_container">
+    <p class="title_stile">Доставка</p>
+    <div class="admin_menu">
+        <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
+        <a href="/Admin/DeliveryMethodsAddEdit" class="admin_menu_item">Добавить способ доставки</a>
+    </div>
+    
+
+    <table class="products_table">
+        <tr>
+            <th>
+                Способ доставки
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+        @foreach (var delivery in Model)
+        {
+            <tr>
+                <td>
+                    @delivery.Name
+                </td>
+                <td>
+                    @delivery.Price
+                </td>
+                <td>
+                    <a href="/Admin/DeliveryMethodsAddEdit?id=@delivery.Id">Редактировать</a>
+                    <a href="/Admin/DeliveryRemove?id=@delivery.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,67 @@
+@model Order
+
+<section class="catalog_container">
+    <div class="content_container">
+        <p class="title_stile">Заказ @(Model.Number)</p>
+        
+        <div class="admin_menu">
+            <a href="/Admin/Orders" class="admin_menu_item">Вернуться к списку заказов</a>
+            <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
+            <a href="/Admin/OrderEdit?id=@(Model.Id)" class="admin_menu_item">Редактировать заказ</a>
+        </div>
+        <section>
+            <p class="order-item">Имя заказчика: @(Model.FirstName)</p>
+            <p class="order-item">Фамилия заказчика: @(Model.LastName)</p>
+            <p class="order-item">Номер телефона: @(Model.Phone)</p>
+            <p class="order-item">Адрес доставки: @(Model.Address)</p>
+            <p class="order-item">Комментарий к заказу: @(Model.Comment)</p>
+            <p class="order-item">Дата заказа: @(Model.CreatedDate)</p>
+            <p class="order-item">Статус заказа: @(Model.Status)</p>
+            <p class="order-item">Сумма: @(Model.TotalPtice)</p>
+            
+        </section>
+        
+        <section><div class="order">
+                <table class="cart_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Товар
+                            </th>
+                            <th>
+                                Цена
+                            </th>
+                            <th>
+                                Количество
+                            </th>
+                            <th>
+                                Итого
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var orderItem in Model.OrderItems) {
+                            <tr>
+                                <td> 
+                                    <a href="/Home/Product?id=@orderItem.Product.Id">
+                                        @orderItem.Product.Name
+                                    </a>   
+                                </td>
+                                <td>
+                                    @orderItem.Price
+                                </td>
+                                <td>
+                                    @orderItem.Quantity
+                                </td>
+                                <td>
+                                    @(orderItem.Quantity * orderItem.Price)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div> 
+        </section>
+    </div>
+</section>
+    

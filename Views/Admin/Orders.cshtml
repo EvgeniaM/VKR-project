@@ -1,0 +1,63 @@
+@model List<Order>
+
+<div class="content_container">
+    <p class="title_stile">Заказы</p>
+    <div class="admin_menu">
+        
+        <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
+    </div>
+    
+    <table class="products_table">
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Статус
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Телефон
+            </th>
+            <th>
+                Сумма
+            </th>
+            <th>
+                Действие
+            </th>
+        </tr>
+        
+        @foreach (var order in Model) {
+             
+                <tr>
+                    <td>
+                        @order.Number
+                    </td>
+                    <th>
+                        @order.Status
+                    </th>
+                    <td>
+                        @order.FirstName
+                    </td>
+                    <td>
+                        @order.LastName
+                    </td>
+                    <td>
+                        @order.Phone
+                    </td>
+                    <td>
+                        @order.TotalPtice
+                    </td>
+                    <td>
+                        <a href="/Admin/OrderRemove?id=@order.Id">Удалить</a>
+                        <a href="/Admin/Order?id=@order.Id">Подробнее</a>
+                    </td>
+                </tr>
+        }
+    </table>
+</div>

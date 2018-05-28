@@ -1,11 +1,12 @@
-
+//добавление товара в корзину по кнопке
     $(document).on('click', '.add_item', function(){
         let cart = JSON.parse(localStorage.getItem('cart')) 
         let itemIsExist = false 
         let itemId = $(this).data("id") 
         let totalSum = 0
 
-    
+        //если в корзине не пусто, изменяем сумму товаров в корзине, при этом 
+        //если добавляем тот же товар, то изменяем количество этого товара
         if (cart) { 
             cart.items.forEach(function(item){ 
                 totalSum += item.price * item.quantity

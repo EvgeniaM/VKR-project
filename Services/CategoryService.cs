@@ -17,7 +17,7 @@ namespace ServerVKR.Services {
         public List<Category> GetCategories() {
             var categories = _db.Categories.Include(c => c.Products);
             
-            return categories.ToList();
+            return categories.OrderBy(c => c.Name).ToList();
         }
         
         public Category GetCategory(Guid? id) {
@@ -41,6 +41,8 @@ namespace ServerVKR.Services {
         //удаляем товар
         public void RemoveCategory(Guid? id) {
             var category = _db.Categories.SingleOrDefault(p => p.Id == id);
+            _db.Products.Include(p => p.Category).Where(p => p.Category.Id == id).ToList().ForEach(p => p.Category = null);
+            
 
             _db.Categories.Remove(category);
             _db.SaveChanges();

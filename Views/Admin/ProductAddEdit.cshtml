@@ -11,7 +11,9 @@
     </div>
     <form method="post" asp-action="ProductAddEdit" class="addEdit_form">
         <div>
+            
             <input asp-for="Name" type="text" placeholder="Название"  id="input_addEditform"/>
+            <input asp-for="Unit" type="text" placeholder="Единица измерения"  id="input_addEditform"/>
             <input asp-for="Price" type="number" placeholder="Цена" id="input_addEditform"/>
             <select asp-for="IdForCategory" id="input_addEditform">
                 @foreach (var category in Model.Categories) {

@@ -13,8 +13,13 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
-button {
+a, button {
 	cursor: pointer;
+}
+
+a.position-center {
+	display: table;
+	margin: 5px auto;
 }
 
 .topcontainer {
@@ -81,7 +86,7 @@ nav {
 .topnav a {
 	color: #000;
 	text-align: center;
-	padding: 14px 23px;
+	padding: 14px 70px;
 	font-size: 15px;
 	text-transform: uppercase;
 }
@@ -218,6 +223,15 @@ nav {
 	max-width: 50.8%;
 	margin: 0 auto;
 	text-align: center;
+}
+
+.select-section {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.select-section p {
+	padding-top: 20px;
 }
 
 footer{
@@ -572,6 +586,7 @@ footer nav a:hover{
 	width: 100%;
 	max-width: 200px;
 	height: 100%;
+	
 	padding: 10px;
 	margin: 0 0 20px 15px;
 }
@@ -584,6 +599,7 @@ footer nav a:hover{
 	color: #000;
 	padding: 10px;
 	text-align: center;
+	height: 2.5em;
 	text-transform: uppercase;
 	display: block;
 }
@@ -616,6 +632,7 @@ footer nav a:hover{
 	display: block;
 	float: right;
 	max-width: 100%;
+	width: 453px;
 }
 
 .product_name {
@@ -808,6 +825,22 @@ footer nav a:hover{
 	border-radius: 1px;
 }
 
+.button-style-reviews {
+	min-width: 280px;
+    background-color: #f73647;
+    padding: 10px;
+    height: initial;
+    color: #fff;
+	border: 1px solid #f73647;
+	transition: 0.2s;
+	border-radius: 1px;
+}
+.button-style-reviews:hover {
+    background-color: #d43442;
+	border: 1px solid #d43442;
+	transition: 0.2s;
+	border-radius: 1px;
+}
 .button-style:hover {
 	background-color: #d43442;
 	border: 1px solid #d43442;
@@ -821,4 +854,11 @@ footer nav a:hover{
 	margin-bottom: 20px;
 	font-size: 16px;
 	text-transform: uppercase;
+}
+
+.order-item {
+	color: #000;
+	display: block;
+	margin-bottom: 20px;
+	font-size: 16px;
 }
