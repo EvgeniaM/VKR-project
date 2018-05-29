@@ -93,7 +93,7 @@ namespace ServerVKR
             services.AddTransient<OrdersService>();
             services.AddTransient<DeliveryService>();
             services.AddTransient<ReviewsService>();
-
+            
             services.AddMvc();
         }
 

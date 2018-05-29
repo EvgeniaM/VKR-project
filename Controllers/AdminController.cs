@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using ServerVKR.Models;
 using ServerVKR.Data;
 using ServerVKR.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ServerVKR.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
         

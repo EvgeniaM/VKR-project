@@ -1,3 +1,23 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+ 
+@if(User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+ 
+    <form method="post" asp-controller="Account" asp-action="LogOff">
+        <input type="submit" value="Выход" />
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Вход</a>
+    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+}
+
+
 <div class="content_container">
     <p class="title_stile">Администрирование</p>
 
@@ -8,3 +28,4 @@
         <a href="/Admin/AdminReviews" class="admin_menu_item">Отзывы</a> 
         <a href="/Admin/DeliveryMethods" class="admin_menu_item">Условия доставки</a> 
     </div>
+</div>
