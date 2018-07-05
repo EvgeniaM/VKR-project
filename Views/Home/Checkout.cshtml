@@ -1,3 +1,5 @@
+@model List<Delivery>
+
 <form action="" method="POST" class="special_order_form">
 			<div>
 				<input id="firstname" type="text" name="first_name" placeholder="Ваше имя*" required>
@@ -6,17 +8,22 @@
                 <input id="address" type="text" name="address" placeholder="Адрес доставки" required>
 				<div class="select-section">
 					<label>Выберите дату, к которой необходимо <br>выполнить заказ:</label>
-				<input type="date" name="date" required>
+				<input id="delivery-date" type="date" name="date" required>
 				</div>
 				<textarea id="comment" placeholder="Комментарий"></textarea>
 				<div class="select-section">
-					<label for="delivery">Выберите способ доставки:</label>
-					<select id="delivery">
-						<option>самовывоз</option>
-						<option>по городу</option>
-					</select>
-					<p>Ваш заказ на сумму: </p>
+					<select id="delivery-method">
+                	@foreach (var method in Model) {
+						<option value="@method.Id">
+							@method.Name - @method.Price руб.
+						</option>
+                	}
+            	</select>
 				</div>
+					
+					<p>Ваш заказ на сумму: </p><p id="total-price"></p> <br>
+					<p>Стоимость заказа с учетом доставки:  2800 руб</p>
+			
 				<a id="checkout" class="button-style position-center">Отправить</a>
 			</div>	
 </form>

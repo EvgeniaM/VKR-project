@@ -11,6 +11,7 @@
 					</div>
 				}
 			</aside>
+			
 			<main class="show_catalog">
 				@foreach (var product in Model.Products) 
 				{
@@ -22,13 +23,69 @@
 							</span>
 						
 							<span class="product_item_price">
-								@product.Price <i class="fas fa-ruble-sign"></i>
+								@product.Price <i class="fas fa-ruble-sign"></i> / @product.Unit
 							</span>
 							
 						</a>
 						<button data-id="@product.Id"  data-price="@product.Price" data-name="@product.Name" class="add_item button-style">Добавить в корзину</button>
 					</div>
 				}  
+				<!-- <div class="product_item">
+						<a href="#">
+							<img src="~/Images/product_photo/klassicheskiy-medovik-1.jpg">
+							<span class="product_item_name">
+								Медовик
+							</span>
+						
+							<span class="product_item_price">
+								700 <i class="fas fa-ruble-sign"></i> / 1 кг
+							</span>
+							
+						</a>
+						<button class="add_item button-style">Добавить в корзину</button>
+					</div> -->
+					<!-- <div class="product_item">
+						<a href="#">
+							<img src="~/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg">
+							<span class="product_item_name">
+								Торт "три шоколада"
+							</span>
+						
+							<span class="product_item_price">
+								800 <i class="fas fa-ruble-sign"></i> / 1 кг
+							</span>
+							
+						</a>
+						<button class="add_item button-style">Добавить в корзину</button>
+					</div> -->
+					<!-- <div class="product_item">
+						<a href="#">
+							<img src="~/Images/product_photo/130876040_20151105_130858.JPG">
+							<span class="product_item_name">
+								Черносмородиновый зефир
+							</span>
+						
+							<span class="product_item_price">
+								300 <i class="fas fa-ruble-sign"></i> / 6 шт
+							</span>
+							
+						</a>
+						<button class="add_item button-style">Добавить в корзину</button>
+					</div> -->
+					<!-- <div class="product_item">
+						<a href="#"> 
+							<img src="~/Images/product_photo/4d00e45debc01cac37739ec37e613c72.jpg">
+							<span class="product_item_name">
+								Шоколадные капкейки
+							</span>
+						
+							<span class="product_item_price">
+								400 <i class="fas fa-ruble-sign"></i> / 6 шт
+							</span>
+							
+						</a>
+						<button class="add_item button-style">Добавить в корзину</button>
+					</div> -->
 			</main>		
 		</div>
 </section>

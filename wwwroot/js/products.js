@@ -1,21 +1,21 @@
 //добавление товара в корзину по кнопке
     $(document).on('click', '.add_item', function(){
-        let cart = JSON.parse(localStorage.getItem('cart')) 
+        let cart = JSON.parse(localStorage.getItem('cart')) //помещаем в переменную cart данные из локалсторейдж
         let itemIsExist = false 
-        let itemId = $(this).data("id") 
-        let totalSum = 0
+        let itemId = $(this).data("id") //помещаем айди сохраняемого продукта
+        let totalSum = 0 //итоговая сумма
 
-        //если в корзине не пусто, изменяем сумму товаров в корзине, при этом 
+        //если в корзине не пусто: изменяем сумму товаров в корзине, при этом 
         //если добавляем тот же товар, то изменяем количество этого товара
-        if (cart) { 
+        if (cart) { //если в корзине есть товар
             cart.items.forEach(function(item){ 
-                totalSum += item.price * item.quantity
-                if (item.id == itemId) { 
+                totalSum += item.price * item.quantity //изменяем стоимость
+                if (item.id == itemId) { //если тот же товар, то увеличиваем количество
                     itemIsExist = true 
                     item.quantity++ 
                 } 
             }) 
-        } else { 
+        } else { //если корзина пустая то инициализируем айтемы (позиции)
             cart = { 
                 items: [] 
             } 

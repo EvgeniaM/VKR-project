@@ -1,11 +1,17 @@
 @model string
- 
-<div asp-validation-summary="All" class="text-danger"></div>
- 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="name">Новая роль</label>
-        <input name="name" class="form-control" />
+
+<div class="content_container">
+    <p class="title_stile">Добавить роль</p>
+    <div class="admin_menu">
+        <a href="Index" class="admin_menu_item">Вернуться на главную</a>
     </div>
-    <button type="submit" class="btn btn-primary">Добавить</button>
-</form>
+    <div asp-validation-summary="All" class="text-danger"></div>
+ 
+    <form asp-action="Create" method="post" class="addEdit_form">
+        <div class="form-group">
+            <label for="name">Новая роль</label>
+            <input name="name" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+</div> 

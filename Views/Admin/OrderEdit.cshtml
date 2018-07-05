@@ -13,7 +13,7 @@
             <input asp-for="Address" type="text" id="input_addEditform">
 			<div class="select-section">
 				<label>Дата, к которой необходимо выполнить заказ:</label>
-			    <input asp-for="CreatedDate" type="datetime">
+			    <input asp-for="DeliveryDate" type="datetime">
 			</div>
             <div class="select-section">
 				<label>Изменить статус заказа:</label>
@@ -24,6 +24,12 @@
                     </option>
                     <option>
                         Подтвержден
+                    </option>
+                    <option>
+                        На выполнении
+                    </option>
+                    <option>
+                        Готов к выдаче
                     </option>
                     <option>
                         Выполнен

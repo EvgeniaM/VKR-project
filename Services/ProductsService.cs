@@ -15,7 +15,7 @@ namespace ServerVKR.Services {
         }
 
         public List<Product> GetProducts() {
-            var products = _db.Products.Include(p => p.Category);
+            var products = _db.Products.Include(p => p.Category).Where(p => !p.IsRemoved);
             
             return products.OrderBy(p => p.Name).ToList();
         }
@@ -28,6 +28,7 @@ namespace ServerVKR.Services {
         
         //получаем товар на вход, добавляем в бд и сохраняем
         public void AddProduct(Product model) {
+            model.IsRemoved = false;
            _db.Products.Add(model);
            _db.SaveChanges();            
         }
@@ -50,7 +51,7 @@ namespace ServerVKR.Services {
             //добавить: если товар находится в каком-либо заказе, то сделать удаление невозможным
             var product = _db.Products.SingleOrDefault(p => p.Id == id);
             
-            _db.Products.Remove(product);
+            product.IsRemoved = true;
             _db.SaveChanges();
         }
     }

@@ -17,6 +17,7 @@ namespace ServerVKR.Models
         public Delivery Deliverys { get; set; }
         public int TotalPtice { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime DeliveryDate { get; set; }
         public string Status { get; set; }
         public int Number { get; set; }
         

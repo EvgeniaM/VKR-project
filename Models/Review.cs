@@ -9,7 +9,6 @@ namespace ServerVKR.Models
         public Guid Id { get; set; } = Guid.NewGuid();
         public string ClientName { get; set; }
         public string Text { get; set; }
-        public string Photo { get; set; }
         public DateTime Date { get; set; }
         [NotMapped]
         public bool NewItem { get; set; }

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     cart.items.forEach(function (item) {
         var tr = `
-                        <tr data-id="${item.id}">
+                    <tr data-id="${item.id}">
                             <td>
                                 <img src="/Images/aromatnoe_lakomstvo_desert_tri_shokolada_2.jpg"> 
                             </td>
@@ -19,7 +19,7 @@ $(document).ready(function () {
                                 ${item.price}
                             </td>
                             <td>
-                                <input type="number" value="${item.quantity}" class="change_quantity" />
+                                <input type="number" min="1" value="${item.quantity}" class="change_quantity" />
                                 
                             </td>
                             <td class="total">
@@ -28,7 +28,7 @@ $(document).ready(function () {
                             <td class="cart_teble_remove">
                                 <a href="#" class="remove_item">&#215;</a>
                             </td>
-                        </tr>`
+                        </tr>`    
 
         cartItemsPlace.append(tr);
         totalSum += item.price * item.quantity

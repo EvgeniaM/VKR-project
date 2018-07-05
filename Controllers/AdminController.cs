@@ -8,6 +8,9 @@ using ServerVKR.Models;
 using ServerVKR.Data;
 using ServerVKR.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ServerVKR.Controllers
 {
@@ -26,6 +29,7 @@ namespace ServerVKR.Controllers
             _ordersService = ordersService;
             _deliveryService = deliveryService;
             _reviewsService = reviewsService;
+            
         }
 
         public IActionResult Index()
@@ -47,8 +51,14 @@ namespace ServerVKR.Controllers
         //Заказы
         public IActionResult Orders()
         {
-            var orders = _ordersService.GetOrders();
-
+            var orders = _ordersService.GetOrders().Where(o => o.Status != "Выполнен").ToList();
+            
+            return View(orders);
+        }
+        public IActionResult DoneOrders()
+        {
+            var orders = _ordersService.GetOrders().Where(o => o.Status == "Выполнен").ToList();
+            
             return View(orders);
         }
         public IActionResult OrderRemove(Guid? id) { 
@@ -103,7 +113,7 @@ namespace ServerVKR.Controllers
             } else {
                 _productsService.EditProduct(product);
             }
-
+            
             return RedirectToAction("Products");
         }
 
@@ -155,7 +165,7 @@ namespace ServerVKR.Controllers
             
             CatalogViewModel model = new CatalogViewModel {
                 Categories = categories,
-                Products = category == null ? _productsService.GetProducts().Where(p => p.Category == null).ToList() : category.Products
+                Products = category == null ? _productsService.GetProducts().Where(p => p.Category == null).ToList() : category.Products.Where(p => p.IsRemoved ==false).ToList()
             };
         
             return View(model);

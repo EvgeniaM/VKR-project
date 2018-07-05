@@ -4,9 +4,9 @@ using System.Threading.Tasks;
  
 namespace ServerVKR
 {
-    public class RoleInitializer
+    public class UserInitializer
     {
-        public static async Task InitializeAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task InitializeUser(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             string adminEmail = "admin@test.com";
             string password = "test123test";

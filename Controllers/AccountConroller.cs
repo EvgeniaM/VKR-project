@@ -16,35 +16,7 @@ namespace ServerVKR.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.Email};
-                // добавляем пользователя
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    // установка куки
-                    await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
-            }
-            return View(model);
-        }
+        
 
         [HttpGet]
         public IActionResult Login(string returnUrl = null)

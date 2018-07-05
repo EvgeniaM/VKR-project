@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ServerVKR.Models;
 using ServerVKR.ViewModels;
+using Microsoft.AspNetCore.Authorization;
  
 namespace ServerVKR.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;

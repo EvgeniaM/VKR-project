@@ -35,6 +35,7 @@ namespace ServerVKR.Services {
             var method = _db.Deliverys.SingleOrDefault(d => d.Id == model.Id);
 
             method.Name = model.Name;
+            method.Price = model.Price;
 
            _db.SaveChanges();            
         }

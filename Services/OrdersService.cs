@@ -17,11 +17,11 @@ namespace ServerVKR.Services {
         public List<Order> GetOrders() {
             var orders = _db.Orders.Include(o => o.OrderItems);
             
-            return orders.OrderBy(o => o.Number).ToList();
+            return orders.OrderByDescending(o => o.CreatedDate).ToList();
         }
         //получаем один заказ
         public Order GetOrder(Guid? id) {
-           var order = _db.Orders.Include(o => o.OrderItems).ThenInclude(i => i.Product).SingleOrDefault(o => o.Id == id);
+           var order = _db.Orders.Include(o => o.OrderItems).ThenInclude(i => i.Product).Include(o => o.Deliverys).SingleOrDefault(o => o.Id == id);
             
            return order;
         }
@@ -34,9 +34,13 @@ namespace ServerVKR.Services {
                 Address = model.Address,
                 Comment = model.Comment,
                 CreatedDate = DateTime.Now,
+                DeliveryDate = model.DeliveryDate,
                 Status = "Создан",
                 Number = _db.Orders.ToList().Count+1,
             };  
+
+            var selectedDeliveryMethod = _db.Deliverys.SingleOrDefault(d => d.Id == model.Deliverys.Id);
+            order.Deliverys = selectedDeliveryMethod;
             
             //добавляем позиции в заказ
             order.OrderItems = new List<OrderItem>();
@@ -64,7 +68,7 @@ namespace ServerVKR.Services {
             order.Comment = model.Comment;
             order.Phone = model.Phone;
             order.Address = model.Address;
-            order.CreatedDate = model.CreatedDate;
+            order.DeliveryDate = model.DeliveryDate;
             order.Status = model.Status;
            _db.SaveChanges();            
         }

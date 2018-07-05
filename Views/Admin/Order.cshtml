@@ -14,10 +14,14 @@
             <p class="order-item">Фамилия заказчика: @(Model.LastName)</p>
             <p class="order-item">Номер телефона: @(Model.Phone)</p>
             <p class="order-item">Адрес доставки: @(Model.Address)</p>
+            <p class="order-item">Тип доставки: @(Model.Deliverys.Name)</p>
             <p class="order-item">Комментарий к заказу: @(Model.Comment)</p>
-            <p class="order-item">Дата заказа: @(Model.CreatedDate)</p>
+            <p class="order-item">Дата поступления заказа: @(Model.CreatedDate)</p>
+            <p class="order-item">Дата выполнения заказа: @(Model.DeliveryDate)</p>
             <p class="order-item">Статус заказа: @(Model.Status)</p>
-            <p class="order-item">Сумма: @(Model.TotalPtice)</p>
+            <p class="order-item">Стоимость заказа: @(Model.TotalPtice) руб</p>
+            <p class="order-item">Стоимость доставки: @(Model.Deliverys.Price) руб</p>
+            <p class="order-item">Общая стоимость: @(Model.TotalPtice + Model.Deliverys.Price) руб</p>
             
         </section>
         

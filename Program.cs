@@ -28,7 +28,7 @@ namespace ServerVKR
                 var userManager = services.GetRequiredService<UserManager<Models.ApplicationUser>>();
                 var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-                t = RoleInitializer.InitializeAsync(userManager, rolesManager);
+                t = UserInitializer.InitializeUser(userManager, rolesManager);
                 t.Wait();
                 }
                 catch (Exception ex)

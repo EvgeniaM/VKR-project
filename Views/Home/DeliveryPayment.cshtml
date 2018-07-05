@@ -1,3 +1,12 @@
+@model List<Delivery>
+
 <div class="delivery_container">
-			<h1>Условия доставки и оплаты</h1>
-		</div>
+			<h2>Условия доставки и оплаты</h2>
+</div>
+<div class="content_container">  
+	<p>Возможные способы доставки:</p>
+	@foreach (var delivery in Model) {
+		<p>@delivery.Name</p> <p>@delivery.Price руб</p>
+	}
+    
+</div>

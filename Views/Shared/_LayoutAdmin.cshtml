@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ServerVKR</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <header>
+		<div class="topcontainer">
+			<div class="logo">
+				<a href="/Home/Index"><img class="graficlogo" src="~/Images/Logo_1.png" width="318" height="120"></a>
+			</div>
+		</div>	
+		<div class="nav_background">
+			<nav>
+				<div class="topnav" id="myTopnav">
+					<a href="/Home/Index">Главная</a>
+					<a href="/Home/Catalog?categoryId=null">Каталог</a>
+					<!-- <a href="/Home/AboutShop">О кондитерской</a> -->
+					<!-- <a href="/Home/CakeFilling">Начинки тортов</a> -->
+					<a href="/Home/Reviews">Отзывы</a>
+					<a href="/Home/DeliveryPayment">Доставка и оплата</a>
+					<a id="menu" href="#" class="icon">&#9776;</a>
+				</div>
+			</nav>
+		</div>
+		
+	</header>
+    
+        @RenderBody()
+
+        <footer>
+		<nav>
+			<a href="/Home/Index">Главная</a>
+			<a href="/Home/Catalog?categoryId=null">Каталог</a>
+			<!-- <a href="/Home/Aboutshop">О кондитерской</a> -->
+			<!-- <a href="/Home/CakeFilling">Начинки тортов</a> -->
+			<a href="/Home/Reviews">Отзывы</a>
+			<a href="/Home/DeliveryPayment">Доставка и оплата</a>
+		</nav>
+		<div class="logo_footer">
+			<img src="~/Images/Logo_1.png" class="graficlogo" width="263" height="99">
+		</div>
+		<!-- <div class="social">
+			<a href="#"><img src="~/Images/social/insta.png" width="40" height="40"></a>
+			<a href="#"><img src="~/Images/social/003-vk.png" width="40" height="40"></a>
+			<a href="#"><img src="~/Images/social/001-google-plus.png" width="40" height="40"></a>
+		</div> -->
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script> -->
+
+    @RenderSection("Scripts", required: false)
+	<script type="text/javascript">
+  	menu.onclick = function myFunction () {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+    		x.className += " responsive";
+    	} 
+    	else {
+    		x.className = "topnav";
+    	}
+  	}
+ 	</script>
+</body>
+</html>

@@ -11,9 +11,10 @@ using System;
 namespace ServerVKR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180531200046_blabla")]
+    partial class blabla
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,8 +218,6 @@ namespace ServerVKR.Migrations
                     b.Property<string>("Comment");
 
                     b.Property<DateTime>("CreatedDate");
-
-                    b.Property<DateTime>("DeliveryDate");
 
                     b.Property<Guid?>("DeliverysId");
 

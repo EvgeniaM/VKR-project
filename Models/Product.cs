@@ -16,6 +16,7 @@ namespace ServerVKR.Models
         public String Unit { get; set; }
         
         public String Photo { get; set; }
+        public bool IsRemoved { get; set; }
 
         [NotMapped]
         public bool NewItem { get; set; }

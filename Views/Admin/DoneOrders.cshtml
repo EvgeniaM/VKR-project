@@ -5,7 +5,6 @@
     <div class="admin_menu">
         
         <a href="/Admin/Index" class="admin_menu_item">Вернуться на главную</a>
-        <a href="/Admin/DoneOrders" class="admin_menu_item">Просмотр выполненных заказов</a>
     </div>
     
     <table class="products_table">
@@ -23,7 +22,7 @@
                 Фамилия
             </th>
             <th>
-                Дата поступления заказа
+                Телефон
             </th>
             <th>
                 Сумма
@@ -49,7 +48,7 @@
                         @order.LastName
                     </td>
                     <td>
-                        @order.CreatedDate
+                        @order.Phone
                     </td>
                     <td>
                         @order.TotalPtice
